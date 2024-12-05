@@ -1,7 +1,8 @@
 
-function test2(){
+
+function test(){
     console.log("test")
     const elementHolder = document.getElementById('element-holder');
-    elementHolder.textContent = 'This is the test 2'; 
+    elementHolder.textContent = 'script java'; 
   }
   
