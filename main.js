@@ -31,3 +31,7 @@ function upload(){
 
 }
 
+function test(){
+  console.log("test")
+}
+
