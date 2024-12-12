@@ -4,7 +4,7 @@ function downloadFile() {
     .then(response => response.text())
     .then(text => {
       // Process the text content here (optional)
-      //console.log(text);
+      console.log(text);
 
       // Create a Blob object and download link
       const blob = new Blob([text], { type: 'text/plain' }); // Adjust MIME type as needed
@@ -24,23 +24,8 @@ function downloadFile() {
 }
 
 function upload() {
-  const fileInput = document.getElementById('fileInput');
-  const file = fileInput.files[0];
-
-  const reader = new FileReader();
-
-  reader.onload = function (e) {
-    const fileContent = e.target.result;
-    //console.log(fileContent); // Print the file content to the console
-
-    
-
-
-  };
-
-  reader.readAsText(file); // Read the file as text
-  //writefile(file)
-
+  console.log("upload IS WORKING")
+  
 }
 
 function writefile(fileContent) {
