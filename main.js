@@ -59,13 +59,13 @@ function writefile(fileContent) {
 
 }
 
-function test() {
-  console.log("test")
+function testmain() {
+  console.log("test it has to sort out")
   const elementHolder = document.getElementById('element-holder');
   elementHolder.textContent = 'main java script plus Balazs';
 
-
-  const elementHolder = document.getElementById('newtext');
-  elementHolder.textContent = "Balazs";
+  const elementHolder2 = document.getElementById('newtext');
+  elementHolder2.textContent = 'Balazs';
+  
 }
 
