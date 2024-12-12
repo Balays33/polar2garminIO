@@ -25,7 +25,32 @@ function downloadFile() {
 
 function upload() {
   console.log("upload IS WORKING")
-  
+
+  const fileInput = document.getElementById('fileInput');
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+
+  const elementHolder = document.getElementById('newtext');
+  elementHolder.textContent = "Balazs";
+
+
+  reader.onload = function (e) {
+    const fileContent = e.target.result;
+    // console.log(fileContent); // Print the file content to the console
+
+    
+
+    //input = new FileReader('./GarminReady.txt')
+    //console.log(input);
+
+
+
+  };
+
+  //reader.readAsText(file); // Read the file as text
+  writefile(file)
+
+
 }
 
 function writefile(fileContent) {
@@ -37,6 +62,10 @@ function writefile(fileContent) {
 function test() {
   console.log("test")
   const elementHolder = document.getElementById('element-holder');
-  elementHolder.textContent = 'main java script';
+  elementHolder.textContent = 'main java script plus Balazs';
+
+
+  const elementHolder = document.getElementById('newtext');
+  elementHolder.textContent = "Balazs";
 }
 
