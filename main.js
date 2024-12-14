@@ -47,18 +47,26 @@ function upload() {
   console.log('File Type:', fileType);
   console.log('Last Modified:', lastModified);
 
+  //display the upload file name on the main page
+  const elementHolder2 = document.getElementById('upload-file-name');
+  elementHolder2.textContent = fileName;
+
   const reader = new FileReader();
 
   reader.onload = function (e) {
     const fileContent = e.target.result;
-    console.log('File Content:', fileContent);
+    // console.log('File Content:', fileContent);
 
-    fixthefile(fileContent);
+    let startWord = "<Creator";
+    let endWord = "</Creator>";
+    const fileContent1 = fixthefile(fileContent, startWord, endWord);
 
-    writefile(fileContent);
+    startWord = "<Author";
+    endWord = "</Author";
+    const fileContent2 = fixthefile(fileContent1, startWord, endWord);
+    writefile(fileContent2);
 
-    const elementHolder2 = document.getElementById('newtext');
-    elementHolder2.textContent = fileName;
+
 
   };
 
@@ -66,26 +74,48 @@ function upload() {
 
 }
 
-function fixthefile(fileContent, str, start, end) {
-  console.log("This is the fix function")
+//function fixthefile(fileContent, str, start, end) {
+function fixthefile(fileContent, startWord, endWord) {
+  console.log("This is the fix function");
+  //console.log(fileContent);
+  // let text = fileContent;
+  // let result= text.replace("teszt","TEST")
+  // console.log("new one: "+result);
+  //console.log(fileContent);
 
-  
-    const result = str.match(new RegExp(start + "(.*)" + end));
+  // Find the starting index of the startWord
+  const startIndex = fileContent.indexOf(startWord);
 
-    return result[1];
+  // If startWord is not found, return the original string
+  if (startIndex === -1) {
+    return fileContent;
+  }
 
+  // Find the ending index of the endWord
+  const endIndex = fileContent.indexOf(endWord, startIndex + startWord.length);
 
-const testString = '124 photos in 22 photo albums';
+  // If endWord is not found after startWord, return the original string
+  if (endIndex === -1) {
+    return fileContent;
+  }
+  // Extract the parts before and after the section to be deleted
+  const before = fileContent.substring(0, startIndex);
+  const after = fileContent.substring(endIndex + endWord.length);
 
-console.log(getStringBetween(testString, 'in ', ' photo'));
+  // Combine the parts to create the modified string
+  fileContent = before + after;
+  //console.log(fileContent);
 
 
 
   return fileContent;
+
 }
 
 function writefile(fileContent) {
   console.log("writefile IS WORKING");
+
+
 
   // Create a Blob object with the file content
 
@@ -95,23 +125,24 @@ function writefile(fileContent) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'GarminReady.TCX'; 
+  a.download = 'GarminReady.TCX';
 
   // Trigger the download
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  URL.revokeObjectURL(url); 
+  URL.revokeObjectURL(url);
 }
 
 
 function testmain() {
-  console.log("test it has to sort out")
+  console.log("test function IS WORKING")
+
   const elementHolder = document.getElementById('element-holder');
   elementHolder.textContent = 'main java script plus Balazs';
 
-  const elementHolder2 = document.getElementById('newtext');
-  elementHolder2.textContent = 'Balazs';
+
+
 
 }
 
