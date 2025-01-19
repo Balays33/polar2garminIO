@@ -134,15 +134,24 @@ function writefile(fileContent) {
   URL.revokeObjectURL(url);
 }
 
+function display_info() {
+  console.log("display_info function IS WORKING");
+  //const elementHolder = document.getElementById('element-holder');
+  //elementHolder.textContent = 'main java script plus Balazs';
+  const first_line_holder = document.getElementById("first_line_holder");
+  first_line_holder.textContent = "What it does? It reads the content, ";
+
+  
+}
+
 
 function testmain() {
-  console.log("test function IS WORKING")
+  console.log("test function IS WORKING");
 
   const elementHolder = document.getElementById('element-holder');
   elementHolder.textContent = 'main java script plus Balazs';
-
-
-
-
 }
+
+
+
 
