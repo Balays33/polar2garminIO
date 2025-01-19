@@ -55,7 +55,7 @@ function upload() {
 
   reader.onload = function (e) {
     const fileContent = e.target.result;
-    // console.log('File Content:', fileContent);
+     //console.log('File Content:', fileContent);
 
     let startWord = "<Creator";
     let endWord = "</Creator>";
